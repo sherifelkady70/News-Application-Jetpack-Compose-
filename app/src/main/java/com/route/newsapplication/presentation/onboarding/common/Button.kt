@@ -1,4 +1,4 @@
-package com.route.newsapplication.presentation.common
+package com.route.newsapplication.presentation.onboarding.common
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -7,12 +7,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun NewButton(
+fun NewsButton(
     text : String,
     onClick : () -> Unit
 ){
