@@ -1,7 +1,6 @@
 package com.route.newsapplication.di
 
 import android.app.Application
-import com.route.newsapplication.ApplicationClass
 import com.route.newsapplication.data.manager.LocalUserManagerImpl
 import com.route.newsapplication.domain.manager.LocalUserManager
 import dagger.Module
