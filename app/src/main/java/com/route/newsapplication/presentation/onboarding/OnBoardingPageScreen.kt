@@ -26,7 +26,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
+fun OnBoardingScreen(
+    event : (OnBoardingEvent) -> Unit
+) {
     Column (modifier= Modifier.fillMaxSize()){
         val pagerState = rememberPagerState (0) {
             pages.size
@@ -80,7 +82,7 @@ fun OnBoardingScreen() {
                 NewsButton(text = buttonState.value[1]) {
                     scope.launch {
                         if (pagerState.currentPage == 3) {
-                            //Navigate to the main screen and save a value in datastore preferences
+                            event.invoke(OnBoardingEvent.SaveEntryEvent)
                         } else {
                             pagerState.animateScrollToPage(
                                 page = pagerState.currentPage + 1
