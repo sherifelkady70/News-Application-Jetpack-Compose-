@@ -16,9 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.lifecycleScope
 import com.route.newsapplication.domain.usecase.AppEntryUseCase
+import com.route.newsapplication.presentation.onboarding.OnBoardingEvent
 import com.route.newsapplication.presentation.onboarding.OnBoardingScreen
+import com.route.newsapplication.presentation.onboarding.OnBoardingViewModel
 import com.route.newsapplication.ui.theme.NewsApplicationTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -42,7 +45,10 @@ class MainActivity : ComponentActivity() {
                 dynamicColor = false
             ) {
                 Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)){
-                    OnBoardingScreen()
+                    val viewModel : OnBoardingViewModel= hiltViewModel()
+                    OnBoardingScreen {
+                        viewModel.onEvent(it)
+                    }
                 }
             }
         }

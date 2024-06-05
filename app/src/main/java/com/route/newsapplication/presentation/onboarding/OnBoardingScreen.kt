@@ -81,7 +81,7 @@ fun OnBoardingScreen(
 
                 NewsButton(text = buttonState.value[1]) {
                     scope.launch {
-                        if (pagerState.currentPage == 3) {
+                        if (pagerState.currentPage == 2) {
                             event.invoke(OnBoardingEvent.SaveEntryEvent)
                         } else {
                             pagerState.animateScrollToPage(
