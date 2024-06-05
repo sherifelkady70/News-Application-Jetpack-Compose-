@@ -18,6 +18,7 @@ fun NavGraph(
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = startDestination ){
+
         navigation(route = Route.AppStartNavigation.route ,
             startDestination = Route.OnBoardingScreen.route){
             composable(route = Route.OnBoardingScreen.route){
