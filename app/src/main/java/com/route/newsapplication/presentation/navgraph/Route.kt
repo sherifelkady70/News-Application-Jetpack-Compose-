@@ -1,15 +1,15 @@
 package com.route.newsapplication.presentation.navgraph
 
 sealed class Route(
-    route : String
+    val route : String
 ) {
 
-    data object OnBoardingScreen : Route("onBoardingScreen")
-    data object HomeScreen : Route("homeScreen")
-    data object SearchScreen : Route("searchScreen")
-    data object BookMarkScreen : Route("bookMarkScreen")
-    data object DetailsScreen : Route("detailsScreen")
-    data object AppStartNavigation : Route("appStartNav")
-    data object NewsNavigation : Route("newsNavigation")
-    data object NewsNavigator : Route("newsNavigator")
+    object OnBoardingScreen : Route( "onBoardingScreen")
+    object HomeScreen : Route("homeScreen")
+    object SearchScreen : Route("searchScreen")
+    object BookMarkScreen : Route("bookMarkScreen")
+    object DetailsScreen : Route("detailsScreen")
+    object AppStartNavigation : Route("appStartNav")
+    object NewsNavigation : Route("newsNavigation")
+    object NewsNavigator : Route("newsNavigator")
 }
