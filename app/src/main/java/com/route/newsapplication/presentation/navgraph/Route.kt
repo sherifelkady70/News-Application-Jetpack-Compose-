@@ -3,6 +3,7 @@ package com.route.newsapplication.presentation.navgraph
 sealed class Route(
     route : String
 ) {
+
     data object OnBoardingScreen : Route("onBoardingScreen")
     data object HomeScreen : Route("homeScreen")
     data object SearchScreen : Route("searchScreen")
