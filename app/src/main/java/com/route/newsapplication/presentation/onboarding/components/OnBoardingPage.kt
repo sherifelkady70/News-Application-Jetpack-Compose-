@@ -34,6 +34,7 @@ fun OnBoardingPage(
                 .fillMaxHeight(0.6f),
             contentScale = ContentScale.Crop)
         Spacer(modifier = Modifier.height(24.dp))
+
         Text(text = page.title,
             modifier = Modifier.padding(horizontal = 30.dp),
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
@@ -44,12 +45,4 @@ fun OnBoardingPage(
             style = MaterialTheme.typography.bodyMedium,
             color = colorResource(id = R.color.text_medium))
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun Display() {
-    OnBoardingPage(page = Page("this is first title ",
-        "ssdadasdasdasdasdasdasdasdasdasdasdasdasd"
-        ,R.drawable.onboarding1))
 }

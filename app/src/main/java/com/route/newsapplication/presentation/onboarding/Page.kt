@@ -11,8 +11,8 @@ data class Page(
 
 
 val pages = listOf(
-    Page("","", R.drawable.onboarding1),
-    Page("","", R.drawable.onboarding2),
-    Page("","", R.drawable.onboarding3),
+    Page("The Daily Scroll","", R.drawable.news),
+    Page("The Best Daily News App","", R.drawable.onboarding2),
+    Page("Good News Is Coming","", R.drawable.goodnewsiscoming),
 
     )
