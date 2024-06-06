@@ -9,6 +9,7 @@ class NewsPagingSource (
     private val source : String
 ) : PagingSource<Int , Article>(){
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? {
+        //the latest axis page in the list
        return state.anchorPosition?.let { anchorPosition ->
            val anchorPage = state.closestPageToPosition(anchorPosition)
            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
