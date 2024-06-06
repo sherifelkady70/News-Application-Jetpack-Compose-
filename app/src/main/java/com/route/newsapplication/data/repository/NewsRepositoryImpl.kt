@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 class NewsRepositoryImpl (
     private val newsApi : NewsWebService
 ) : NewsRepository {
-    override fun getNews(sources: List<Source>): Flow<PagingData<Article>> {
+    override fun getNews(sources: List<String>): Flow<PagingData<Article>> {
         return Pager(
             config = PagingConfig(10) ,
             pagingSourceFactory = {

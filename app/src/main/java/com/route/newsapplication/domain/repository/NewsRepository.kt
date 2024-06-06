@@ -6,5 +6,5 @@ import com.route.newsapplication.domain.models.Source
 import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
-    fun getNews(sources : List<Source>) : Flow<PagingData<Article>>
+    fun getNews(sources : List<String>) : Flow<PagingData<Article>>
 }

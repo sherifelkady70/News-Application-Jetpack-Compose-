@@ -1,4 +1,4 @@
-package com.route.newsapplication.domain.usecase
+package com.route.newsapplication.domain.usecase.appentry
 
 data class AppEntryUseCase(
     val saveLocalUserData : SaveEntryUseCase,

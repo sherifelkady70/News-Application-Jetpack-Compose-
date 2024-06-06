@@ -3,9 +3,9 @@ package com.route.newsapplication.di
 import android.app.Application
 import com.route.newsapplication.data.manager.LocalUserManagerImpl
 import com.route.newsapplication.domain.manager.LocalUserManager
-import com.route.newsapplication.domain.usecase.AppEntryUseCase
-import com.route.newsapplication.domain.usecase.ReadAppEntryUseCase
-import com.route.newsapplication.domain.usecase.SaveEntryUseCase
+import com.route.newsapplication.domain.usecase.appentry.AppEntryUseCase
+import com.route.newsapplication.domain.usecase.appentry.ReadAppEntryUseCase
+import com.route.newsapplication.domain.usecase.appentry.SaveEntryUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
