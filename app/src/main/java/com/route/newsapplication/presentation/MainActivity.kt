@@ -37,7 +37,6 @@ class MainActivity : ComponentActivity() {
                 Log.d("test read local user",it.toString())
             }
         }
-        
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 mainViewModel.splashCondition
