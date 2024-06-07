@@ -1,6 +1,7 @@
 package com.route.newsapplication.di
 
 import android.app.Application
+import android.util.Log
 import com.route.newsapplication.data.manager.LocalUserManagerImpl
 import com.route.newsapplication.data.remote.NewsWebService
 import com.route.newsapplication.data.repository.NewsRepositoryImpl
@@ -15,6 +16,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -37,18 +40,37 @@ object AppModule {
             readLocalUserData = ReadAppEntryUseCase(localUserManager)
         )
 
+    @Singleton
+    @Provides
+    fun provideInterceptors() : HttpLoggingInterceptor{
+        return HttpLoggingInterceptor{
+            Log.e("API",it)
+        }.apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+    }
+    @Provides
+    @Singleton
+    fun okHttpClint(loggingInterceptor : HttpLoggingInterceptor) : OkHttpClient{
+        return OkHttpClient
+            .Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+    }
     @Provides
     @Singleton
     fun provideGsonConverterFactory():GsonConverterFactory{
         return GsonConverterFactory.create()
     }
+
     @Provides
     @Singleton
-    fun provideRetrofit(gsonConverterFactory: GsonConverterFactory) : Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient,gsonConverterFactory: GsonConverterFactory) : Retrofit {
         return Retrofit
             .Builder()
             .addConverterFactory(gsonConverterFactory)
             .baseUrl("https://newsapi.org/v2/")
+            .client(okHttpClient)
             .build()
     }
     @Provides
@@ -64,6 +86,6 @@ object AppModule {
     @Provides
     @Singleton
     fun providesNewsUseCases(newsRepo : NewsRepository) : NewsUseCases {
-        return NewsUseCases(newsUseCase = GetNews(newsRepo))
+        return NewsUseCases(getNews = GetNews(newsRepo))
     }
 }
