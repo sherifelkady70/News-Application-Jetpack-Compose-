@@ -1,4 +1,4 @@
-package com.route.newsapplication.presentation.onboarding.common
+package com.route.newsapplication.presentation.home.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -25,9 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.max
 import coil.compose.AsyncImage
-import coil.decode.ImageSource
 import coil.request.ImageRequest
 import com.route.newsapplication.R
 import com.route.newsapplication.domain.models.Article
@@ -56,7 +53,7 @@ fun ArticleCard(
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
-                .padding(5.dp)
+                .padding(horizontal = 5.dp)
                 .height(96.dp)
         ) {
             Text(
@@ -92,6 +89,7 @@ fun ArticleCard(
     }
 }
 
+@Preview(showBackground = true)
 @Composable
 fun PreviewArticle() {
     NewsApplicationTheme {
