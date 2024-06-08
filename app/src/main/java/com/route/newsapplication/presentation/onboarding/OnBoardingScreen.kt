@@ -18,8 +18,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.route.newsapplication.presentation.onboarding.common.NewsButton
-import com.route.newsapplication.presentation.onboarding.common.NewsTextButton
+import com.route.newsapplication.presentation.common.NewsButton
+import com.route.newsapplication.presentation.common.NewsTextButton
 import com.route.newsapplication.presentation.onboarding.components.OnBoardingPage
 import com.route.newsapplication.presentation.onboarding.components.PageIndicator
 import kotlinx.coroutines.launch

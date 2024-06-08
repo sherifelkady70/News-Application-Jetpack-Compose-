@@ -1,4 +1,4 @@
-package com.route.newsapplication.presentation.onboarding.common
+package com.route.newsapplication.presentation.common
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
