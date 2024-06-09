@@ -32,7 +32,19 @@ fun handlingPagingResult(
         loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
         else -> null
     }
-
+    return when{
+        loadState.refresh is LoadState.Loading -> {
+            ShimmerEffect()
+            false
+        }
+        error != null -> {
+            //Empty view
+            false
+        }
+        else -> {
+            true
+        }
+    }
 
 }
 
