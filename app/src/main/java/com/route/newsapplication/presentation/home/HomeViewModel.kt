@@ -10,5 +10,4 @@ class HomeViewModel @Inject constructor(
     private val newsUseCase : NewsUseCases
 ): ViewModel() {
 
-
 }
