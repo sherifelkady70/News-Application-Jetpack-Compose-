@@ -79,7 +79,7 @@ fun HomeScreen(articles : LazyPagingItems<Article> , navigation : (String) -> Un
 
         Spacer(modifier = Modifier.padding(MediumPadding1))
 
-        ArticleList(articles = articles) {
+        ArticleList(modifier = Modifier.padding(MediumPadding1),articles = articles) {
             Route.DetailsScreen.route
         }
     }
