@@ -1,14 +1,20 @@
 package com.route.newsapplication.presentation.common
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 
 
 @Composable
@@ -34,5 +40,18 @@ fun SearchBar(
         TextField(modifier = Modifier.fillMaxWidth()
             ,value = text
             , onValueChange = onValueChange)
+    }
+}
+
+@Composable
+fun Modifier.searchBarBoarder() = composed {
+    if(!isSystemInDarkTheme()){
+        border(
+            width = 1.dp,
+            color = Color.Black,
+            shape = MaterialTheme.shapes.medium
+        )
+    }else{
+        this
     }
 }
