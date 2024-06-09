@@ -1,10 +1,14 @@
 package com.route.newsapplication.presentation.common
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.route.newsapplication.domain.models.Article
+import com.route.newsapplication.util.Constants.MediumPadding1
 
 
 @Composable
@@ -35,5 +39,11 @@ fun handlingPagingResult(
 
 @Composable
 fun ShimmerEffect(){
-    ArticleShimmerEffect()
+    Column (verticalArrangement = Arrangement.spacedBy(MediumPadding1)){
+        repeat(10){
+            ArticleShimmerEffect(
+                modifier = Modifier.padding(MediumPadding1)
+            )
+        }
+    }
 }
