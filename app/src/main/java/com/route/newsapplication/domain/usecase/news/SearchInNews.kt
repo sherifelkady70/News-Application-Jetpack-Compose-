@@ -10,7 +10,7 @@ import javax.inject.Inject
 class SearchInNews @Inject constructor(
     private val newsRepository : NewsRepository
 ) {
-    suspend operator fun invoke(search : String , sources : List<String>) : Flow<PagingData<Article>> {
+     operator fun invoke(search : String , sources : List<String>) : Flow<PagingData<Article>> {
         return newsRepository.getSearchNews(search , sources)
     }
 
