@@ -4,6 +4,6 @@ import androidx.paging.PagingData
 import com.route.newsapplication.domain.models.Article
 
 data class SearchState(
-    val search : String ,
-    val articles : PagingData<Article>
+    val search : String ="" ,
+    val articles : PagingData<Article>?=null
 )

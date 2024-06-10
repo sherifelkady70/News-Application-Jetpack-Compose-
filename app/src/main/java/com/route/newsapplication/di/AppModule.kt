@@ -12,6 +12,7 @@ import com.route.newsapplication.domain.usecase.appentry.ReadAppEntryUseCase
 import com.route.newsapplication.domain.usecase.appentry.SaveEntryUseCase
 import com.route.newsapplication.domain.usecase.news.GetNews
 import com.route.newsapplication.domain.usecase.news.NewsUseCases
+import com.route.newsapplication.domain.usecase.news.SearchInNews
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -86,6 +87,7 @@ object AppModule {
     @Provides
     @Singleton
     fun providesNewsUseCases(newsRepo : NewsRepository) : NewsUseCases {
-        return NewsUseCases(getNews = GetNews(newsRepo))
+        return NewsUseCases(getNews = GetNews(newsRepo),
+            searchInNews = SearchInNews(newsRepo))
     }
 }
