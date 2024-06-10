@@ -1,5 +1,6 @@
 package com.route.newsapplication.presentation.navgraph
 
+import android.util.Log
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
@@ -41,9 +42,8 @@ fun NavGraph(
             ){
                 val homeViewModel : HomeViewModel= hiltViewModel()
                 val articles = homeViewModel.news.collectAsLazyPagingItems()
-                HomeScreen(articles = articles) {
-
-                }
+                Log.d("result of Api","articles passed in Home Screen $articles")
+                HomeScreen(articles = articles,{})
             }
         }
     }

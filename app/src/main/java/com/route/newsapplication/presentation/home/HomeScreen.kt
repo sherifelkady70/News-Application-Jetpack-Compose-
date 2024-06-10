@@ -1,5 +1,6 @@
 package com.route.newsapplication.presentation.home
 
+import android.util.Log
 import android.widget.Space
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -38,9 +39,9 @@ fun HomeScreen(articles : LazyPagingItems<Article> , navigation : (String) -> Un
             if(articles.itemCount > 10){
                 articles.itemSnapshotList.items
                     .slice(IntRange(0,9))
-                    .joinToString(" ") {it.title}
+                    .joinToString(" \uD83D\uDFE5 ") {it.title}
             }else{
-                " "
+                ""
             }
         }
     }
@@ -51,17 +52,18 @@ fun HomeScreen(articles : LazyPagingItems<Article> , navigation : (String) -> Un
             .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
-        Image(painter = painterResource(id = R.drawable.logo_foreground),
+        Image(
+            painter = painterResource(id = R.drawable.logothedailyscroll),
             contentDescription = null,
             modifier = Modifier
-                .width(150.dp)
-                .height(30.dp)
-                .padding(MediumPadding1)
+                .width(200.dp)
+                .height(50.dp)
+                .padding(end = MediumPadding1, start = 10.dp)
         )
-        
         Spacer(modifier = Modifier.padding(MediumPadding1))
 
-        SearchBar(text = "", readOnly = false, onValueChange = {},
+        SearchBar(modifier = Modifier.padding(horizontal = MediumPadding1)
+            ,text = "", readOnly = false, onValueChange = {},
             onClick = {},
             onSearch = {navigation(Route.SearchScreen.route)})
 
@@ -79,7 +81,9 @@ fun HomeScreen(articles : LazyPagingItems<Article> , navigation : (String) -> Un
 
         Spacer(modifier = Modifier.padding(MediumPadding1))
 
-        ArticleList(modifier = Modifier.padding(MediumPadding1),articles = articles) {
+        Log.d("result of Api","articles that pass to ArticlesList fun $articles")
+        ArticleList(modifier = Modifier.padding(MediumPadding1)
+            ,articles = articles) {
             Route.DetailsScreen.route
         }
     }

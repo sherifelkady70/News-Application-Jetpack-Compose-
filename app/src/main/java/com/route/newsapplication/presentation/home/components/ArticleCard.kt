@@ -1,5 +1,6 @@
 package com.route.newsapplication.presentation.home.components
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -41,6 +42,7 @@ fun ArticleCard(
     Row(
         modifier = Modifier.clickable { onClick }
     ) {
+        Log.d("result of Api","handle paging data $article")
         AsyncImage(
             modifier = Modifier
                 .size(96.dp)

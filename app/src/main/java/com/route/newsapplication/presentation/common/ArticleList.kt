@@ -1,5 +1,6 @@
 package com.route.newsapplication.presentation.common
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,16 +24,18 @@ fun ArticleList(
     onClick : (Article) -> Unit
 ){
     val handlePagingData = handlingPagingResult(articles = articles)
-
+    Log.d("result of Api","handle paging data - boolean $handlePagingData")
     if(handlePagingData){
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(MediumPadding1),
             contentPadding = PaddingValues(ExtraSmallPadding),
         ) {
-            items(articles.itemCount) {
-                articles[it]?.let {
-                    ArticleCard(article = it, onClick = { onClick })
+            items(count = articles.itemCount) {
+                articles[it]?.let { articles ->
+                    Log.d("result of Api","article item count $it")
+                    ArticleCard(article = articles, onClick = { onClick })
+                    Log.d("result of Api","articles passed into Article card  $articles")
                 }
             }
         }

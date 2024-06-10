@@ -10,13 +10,14 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val newsUseCase : NewsUseCases
+    private val newsUseCases: NewsUseCases
 ): ViewModel() {
 
     var state = mutableStateOf(HomeState())
         private set
 
-    val news = newsUseCase.getNews(
-        sources = listOf("bbc-news","algazira-news")
+    val news = newsUseCases.getNews(
+        sources = listOf("bbc-news","abc-news","al-jazeera-english")
     ).cachedIn(viewModelScope)
+
 }
