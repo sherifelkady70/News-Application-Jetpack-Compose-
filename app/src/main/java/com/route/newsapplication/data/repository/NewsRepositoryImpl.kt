@@ -20,7 +20,7 @@ class NewsRepositoryImpl @Inject constructor(
             pagingSourceFactory = {
                 NewsPagingSource(
                     newsApi,
-                    source = sources.joinToString( ",")
+                    source = sources.joinToString(",")
                 )
             }
         ).flow
@@ -32,7 +32,7 @@ class NewsRepositoryImpl @Inject constructor(
             pagingSourceFactory = {
                 SearchPagingSource(
                     newsApi,
-                    source = sources.joinToString( ","),
+                    source = sources.joinToString(","),
                     search = search
                 )
             }
