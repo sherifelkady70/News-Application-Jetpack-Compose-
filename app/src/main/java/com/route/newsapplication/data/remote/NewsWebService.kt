@@ -12,4 +12,13 @@ interface NewsWebService {
         @Query("page") page: Int,
         @Query("apiKey") apiKey: String = API_KEY
     ): NewsResponse
+
+
+    @GET("everything")
+    suspend fun searchInNews(
+        @Query("q")  search : String ,
+        @Query("sources") sources: String,
+        @Query("page") page: Int,
+        @Query("apiKey") apiKey: String = API_KEY
+    ): NewsResponse
 }
